@@ -12,7 +12,7 @@ const PageController = require("./controllers/PageController");
 const app = express();
 
 // Connect DB
-mongoose.connect("mongodb://127.0.0.1:27017/pcat-test-db");
+mongoose.connect("mongodb+srv://can:aMr36acwrdke3M13@cluster0.n5eeyuo.mongodb.net/pcat-test-db");
 
 app.set("view engine", "ejs");
 
@@ -36,8 +36,8 @@ app.get("/about", PageController.getAboutPage);
 
 app.get("/add", PageController.getAddPage);
 
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-  console.log("Sunucu 3000 portunda çalıştırıldı");
+  console.log("Sunucu başarıyla çalıştırıldı");
 });
